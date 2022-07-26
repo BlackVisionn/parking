@@ -97,11 +97,11 @@
 
                     <?php $clients = Client::all();?>
                         @foreach($clients as $client)
-                            <option value="{{$client->id}}"
-                                    @if($client->fio == $key->client->fio)
-                                    selected="selected">
-                                    @endif
-                                {{$client->fio}}</option>
+                            @if($client->fio == $key->client->fio)
+                                <option value="{{$client->id}}" selected="selected">{{$client->fio}}</option>
+                            @else
+                                <option value="{{$client->id}}">{{$client->fio}}</option>
+                            @endif
                         @endforeach
                         @error('id_client')
                         <div class="alert alert-danger">{{$message}}</div>

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CarRequest;
 use App\Http\Requests\ClientRequest;
 use App\Models\Car;
 use App\Models\Client;
@@ -20,7 +19,7 @@ class ClientController extends Controller
 
     public function store(ClientRequest $request){
         Client::create($request->only(['fio', 'gender', 'phone', 'address']));
-        return redirect()->route('cars.create');
+        return redirect()->route('clients.index');
     }
 
     public function update(ClientRequest $request, Client $client){

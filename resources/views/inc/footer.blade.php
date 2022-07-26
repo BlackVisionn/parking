@@ -3,6 +3,5 @@
 
     <ul class="nav col-md-4 justify-content-end">
         <li class="nav-item"><a href="/" class="nav-link px-2 text-dark">Главная</a></li>
-        <li class="nav-item"><a href="/create" class="nav-link px-2 text-dark">Features</a></li>
     </ul>
 </footer>

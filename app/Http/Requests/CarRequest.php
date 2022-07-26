@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
+
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -23,26 +24,22 @@ class CarRequest extends FormRequest
      */
     public function rules()
     {
-//        $rules =[
-//            'mark' => 'required',
-//            'model' => 'required',
-//            'color' => 'required',
-//            'car_num' => [
-//                'required'
-//            ],
-//            'id_client' => 'required',
-//            'status' => 'required'
-//        ];
-//
-//        if (!empty($this->car)) {
-//            $rules['car_num'][] = Rule::unique('cars')->ignore($this->car->id);
-//        } else {
-//            $rules['car_num'][] = Rule::unique('cars');
-//        }
-//
-//        return $rules;
-        return [
-
+        $rules =[
+            'mark' => 'required',
+            'model' => 'required',
+            'color' => 'required',
+            'car_num' => [
+                'required'
+            ],
+            'id_client' => 'required'
         ];
+
+        if (!empty($this->car)) {
+            $rules['car_num'][] = Rule::unique('cars')->ignore($this->car->id);
+        } else {
+            $rules['car_num'][] = Rule::unique('cars');
+        }
+
+        return $rules;
     }
 }

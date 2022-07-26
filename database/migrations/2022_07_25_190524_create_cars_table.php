@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('model');
             $table->string('color');
             $table->string('car_num');
-            $table->boolean('status')->default(0);
+            $table->boolean('status');
             $table->integer('id_client')->unsigned();
             $table->foreign('id_client')->references('id')->on('clients')->onDelete('cascade');
             $table->timestamps();

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\CarRequest;
 use App\Models\Car;
+use Illuminate\Http\Request;
 
 class CarController extends Controller
 {
@@ -17,9 +19,8 @@ class CarController extends Controller
     }
 
     public function store(CarRequest $request){
-        $request->merge(array('status' => $request->has('status')));
+        $request->merge(array('status'=>$request->has('status')));
         Car::create($request->only(['mark', 'model', 'color', 'car_num', 'id_client', 'status']));
-
         return redirect()->route('cars.index');
     }
 
@@ -37,5 +38,4 @@ class CarController extends Controller
         $car->delete();
         return redirect()->route('cars.index');
     }
-
 }
